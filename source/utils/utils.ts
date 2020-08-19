@@ -22,10 +22,10 @@
 */
 import { browser } from 'webextension-polyfill-ts'
 
-// Needed by the sha256 method
-const enc = new TextEncoder()
-
 export class Utils {
+    // Needed by the sha256 method
+    static enc = new TextEncoder()
+
     /**
      * Checks if the current browser runs on android.
      *
@@ -88,7 +88,7 @@ export class Utils {
      * @returns SHA-256 of the given message
      */
     static async sha256(message: string): Promise<string> {
-        const msgUint8 = enc.encode(message)
+        const msgUint8 = Utils.enc.encode(message)
         const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8)
         const hashArray = Array.from(new Uint8Array(hashBuffer))
 
