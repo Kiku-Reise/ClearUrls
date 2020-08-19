@@ -18,3 +18,9 @@ yarn-error.log*
 
 # WebStorm
 .idea/
+
+node_modules
+yarn.lock
+distribution
+coverage
+size-plugin.json

@@ -1,0 +1,12 @@
+{
+    "extends": "@sindresorhus/tsconfig",
+    "compilerOptions": {
+      "target": "es6",
+      "jsx": "preserve",
+      "declaration": false,
+      "moduleResolution": "node",
+      "esModuleInterop": true
+    },
+    "include": ["source/**/*"]
+  }
+  
