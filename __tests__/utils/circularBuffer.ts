@@ -1,4 +1,4 @@
-import CircularBuffer from '../../source/utils/CircularBuffer'
+import CircularBuffer from '../../source/utils/circularBuffer'
 
 describe('CircularBuffer', () => {
     let capacity: number
