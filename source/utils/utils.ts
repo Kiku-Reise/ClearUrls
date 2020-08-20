@@ -22,6 +22,8 @@
 */
 import { browser } from 'webextension-polyfill-ts'
 
+declare const InstallTrigger: any
+
 export class Utils {
     // Needed by the sha256 method
     static enc = new TextEncoder()

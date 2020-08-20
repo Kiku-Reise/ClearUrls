@@ -26,9 +26,11 @@
 import OptionsSync from 'webext-options-sync'
 import { Utils } from '../utils/utils'
 
-export default new OptionsSync({
+/**
+ * Saves all options in sync storage.
+ */
+export const syncStorage = new OptionsSync({
     defaults: {
-        rules: '{}',
         rulesHash: '',
         badgedStatus: true,
         enabled: true,
@@ -36,7 +38,6 @@ export default new OptionsSync({
         cleanedCount: 0,
         rulesStatus: 'error',
         loggingEnabled: false,
-        log: '',
         logLimit: 100,
         statisticsEnabled: true,
         badgedColor: '#ffa500',
@@ -54,23 +55,24 @@ export default new OptionsSync({
         pingRequestTypes: '',
     },
     migrations: [
-        (savedOptions, defaults) => {
-
+        // Secound param is normaly "defaults", but currently not used
+        (savedOptions, _) => {
             if (Utils.getBrowser() === 'Firefox') {
                 if (savedOptions.requestTypes === '') {
-                    savedOptions.requestTypes = 'font,image,imageset,main_frame,media,object,object_subrequest,other,script,stylesheet,sub_frame,websocket,xml_dtd,xmlhttprequest,xslt'
+                    savedOptions.requestTypes = Object.values(FirefoxRequestTypes).join(',')
                 }
 
                 if (savedOptions.pingRequestTypes === '') {
-                    savedOptions.pingRequestTypes = 'ping,beacon'
+                    savedOptions.pingRequestTypes = Object.values(FirefoxPingRequestTypes).join(',')
                 }
-            } else {
+            }
+            else {
                 if (savedOptions.requestTypes === '') {
-                    savedOptions.requestTypes = 'main_frame,sub_frame,stylesheet,script,image,font,object,xmlhttprequest,ping,csp_report,media,websocket,other'
+                    savedOptions.requestTypes = Object.values(ChromeRequestTypes).join(',')
                 }
 
                 if (savedOptions.pingRequestTypes === '') {
-                    savedOptions.pingRequestTypes = 'ping'
+                    savedOptions.pingRequestTypes = Object.values(ChromePingRequestTypes).join(',')
                 }
             }
         },
@@ -80,3 +82,70 @@ export default new OptionsSync({
     logging: true,
     storageName: 'clearurlsData',
 })
+
+/**
+ * Saves rules and logs on local storage.
+ */
+/* export class LocalStorage {
+    private _rules: {}
+    private _log: Log
+
+    public constructor() {
+        this._rules = {}
+        this._log = new Log()
+    }
+} */
+
+/**
+ * Models the supported request types of Firefox.
+ */
+export enum FirefoxRequestTypes {
+    FONT = 'font',
+    IMAGE = 'image',
+    IMAGESET = 'imageset',
+    MAIN_FRAME = 'main_frame',
+    MEDIA = 'media',
+    OBJECT = 'object',
+    OBJECT_SUBREQUEST = 'object_subrequest',
+    OTHER = 'other',
+    SCRIPT = 'script',
+    STYLESHEET = 'stylesheet',
+    SUB_FRAME = 'sub_frame',
+    WEBSOCKET = 'websocket',
+    XML_DTD = 'xml_dtd',
+    XMLHTTPREQUEST = 'xmlhttprequest',
+    XSLT = 'xslt',
+}
+
+/**
+ * Models the supported ping request types of Firefox.
+ */
+export enum FirefoxPingRequestTypes {
+    PING = 'ping',
+    BEACON = 'beacon',
+}
+
+/**
+ * Models the supported request types of Chrome.
+ */
+export enum ChromeRequestTypes {
+    MAIN_FRAME = 'main_frame',
+    SUB_FRAME = 'sub_frame',
+    STYLESHEET = 'stylesheet',
+    SCRIPT = 'script',
+    IMAGE = 'image',
+    FONT = 'font',
+    OBJECT = 'object',
+    XMLHTTPREQUEST = 'xmlhttprequest',
+    CSP_REPORT = 'csp_report',
+    MEDIA = 'media',
+    WEBSOCKET = 'websocket',
+    OTHER = 'other',
+}
+
+/**
+ * Models the supported ping request types of Chrome.
+ */
+export enum ChromePingRequestTypes {
+    PING = 'ping',
+}

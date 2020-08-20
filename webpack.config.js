@@ -8,7 +8,7 @@ module.exports = {
   stats: 'errors-only',
   entry: {
     // target_path/target_file_name: full_source_path
-    'background/main': './source/background/main.ts',
+    'background/main': './source/background/main.ts'
   },
   output: {
     path: path.join(__dirname, 'distribution'),
@@ -62,6 +62,25 @@ module.exports = {
             ignore: ['**/*.js', '**/*.ts', '**/*.tsx', '**/*.scss'],
           },
         },
+        {
+          from: '_locales/**/*'
+        },
+        {
+          from: 'img/*'
+        },
+        {
+          from: 'fonts/*'
+        },
+        {
+          from: 'css/*'
+        },
+        {
+          from: 'html/*'
+        },
+        {
+          from: 'scripts/*',
+          context: 'source'
+        }
       ],
     }),
   ],
