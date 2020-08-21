@@ -19,11 +19,11 @@
 import Rule from '../rules/rule'
 
 export default class LogEntry {
-    private _before: string
-    private _after: string
-    private _rule: Rule
-    private _timestamp: number
-    private _runtime: number
+    private readonly _before: string
+    private readonly _after: string
+    private readonly _rule: Rule
+    private readonly _timestamp: number
+    private readonly _runtime: number
 
     constructor(before: string, after: string, rule: Rule, timestamp: number = Date.now(), runtime: number) {
         this._before = before
