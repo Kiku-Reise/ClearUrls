@@ -38,6 +38,7 @@ hash rules:
       - data/data.min.json
 
 install addon:
+    image: node:stable
     stage: install
     script:
         - npm install
@@ -51,6 +52,7 @@ install addon:
             - node_modules/
 
 test addon:
+    image: node:stable
     stage: test
     dependencies:
         - install addon
