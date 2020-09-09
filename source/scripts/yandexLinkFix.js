@@ -39,7 +39,8 @@
         injectFunction();
 
         document.addEventListener('mouseover', function (event) {
-            let a = event.target, depth = 1;
+            let a = event.target;
+            let depth = 1;
 
             while (a && a.tagName !== 'A' && depth-- > 0) {
                 a = a.parentNode;

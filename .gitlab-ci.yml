@@ -62,7 +62,7 @@ test:vulnerabilities:
     dependencies:
         - install dependencies
     script:
-        - npm run vuln-test
+        - npm audit
 
 test:addon:
     image: node:latest

@@ -30,7 +30,7 @@ export default class Rule {
      * @param active - if the rule is active or not
      */
     constructor(rule: string, active: boolean = true) {
-        this._rule = new RegExp(rule, "gi")
+        this._rule = new RegExp(rule, 'gi')
         this._active = active
     }
 

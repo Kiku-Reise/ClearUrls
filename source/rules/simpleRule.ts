@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import Rule from "./rule";
+import Rule from './rule'
 
 /**
  * Models a simple rule.
@@ -29,6 +29,6 @@ export default class SimpleRule extends Rule {
      * @param active - if the rule is active or not
      */
     constructor(rule: string, active: boolean = true) {
-        super('([\/?#]|(&|&amp;))+(' + rule + '=[^&]*)', active);
+        super('([\/?#]|(&|&amp;))+(' + rule + '=[^&]*)', active)
     }
 }
