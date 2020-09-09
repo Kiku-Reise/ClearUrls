@@ -24,12 +24,12 @@
 */
 
 import OptionsSync from 'webext-options-sync'
-import { Utils } from '../utils/utils'
+import {Utils} from '../utils/utils'
 
 /**
  * Saves all options in sync storage.
  */
-export const syncStorage = new OptionsSync({
+export const SyncStorage = new OptionsSync({
     defaults: {
         rulesHash: '',
         badgedStatus: true,
@@ -55,7 +55,7 @@ export const syncStorage = new OptionsSync({
         pingRequestTypes: '',
     },
     migrations: [
-        // Secound param is normaly "defaults", but currently not used
+        // Second param is normally "defaults", but currently not used
         (savedOptions, _) => {
             if (Utils.getBrowser() === 'Firefox') {
                 if (savedOptions.requestTypes === '') {
@@ -65,8 +65,7 @@ export const syncStorage = new OptionsSync({
                 if (savedOptions.pingRequestTypes === '') {
                     savedOptions.pingRequestTypes = Object.values(FirefoxPingRequestTypes).join(',')
                 }
-            }
-            else {
+            } else {
                 if (savedOptions.requestTypes === '') {
                     savedOptions.requestTypes = Object.values(ChromeRequestTypes).join(',')
                 }

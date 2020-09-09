@@ -20,7 +20,7 @@
 /*
 * This script is responsible for some tools.
 */
-import { browser } from 'webextension-polyfill-ts'
+import {browser} from 'webextension-polyfill-ts'
 
 declare const InstallTrigger: any
 
@@ -33,7 +33,7 @@ export class Utils {
      *
      * @returns Promise with true, iff the current browser runs on android otherwise false
      */
-    static async isAndroidOS() : Promise<boolean> {
+    static async isAndroidOS(): Promise<boolean> {
         return (await browser.runtime.getPlatformInfo()).os === 'android'
     }
 
@@ -42,7 +42,7 @@ export class Utils {
      *
      * @returns the browser name
      */
-    static getBrowser() : string {
+    static getBrowser(): string {
         if (typeof InstallTrigger !== 'undefined') {
             return 'Firefox'
         }
@@ -58,7 +58,7 @@ export class Utils {
      * @param url - the url, that should be decoded
      * @returns the decoded URL
      */
-    static decodeURL(url: string) : string {
+    static decodeURL(url: string): string {
         let rtn = decodeURIComponent(url)
 
         while (Utils.isEncodedURI(rtn)) {
@@ -76,7 +76,7 @@ export class Utils {
      * @param uri - the URI to be checked
      * @returns true, iff the given URI is encoded otherwise false
      */
-    static isEncodedURI(uri: string) : boolean {
+    static isEncodedURI(uri: string): boolean {
         return uri !== decodeURIComponent(uri || '')
     }
 

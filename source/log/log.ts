@@ -19,6 +19,9 @@
 import CircularBuffer from '../utils/circularBuffer'
 import LogEntry from './logEntry'
 
+/**
+ * Models the log.
+ */
 export default class Log extends CircularBuffer<LogEntry> {
     public constructor(capacity: number) {
         super(capacity)

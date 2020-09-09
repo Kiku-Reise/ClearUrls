@@ -16,12 +16,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * Models a circular buffer of fixed size.
+ */
 export default class CircularBuffer<T> {
-    private buffer: T[]
     public readonly capacity: number
+    private readonly buffer: T[]
 
     /**
-     * Create a new circular buffer, that removes the oldes elements if the capacity is reached.
+     * Create a new circular buffer, that removes the oldest elements if the capacity is reached.
      *
      * @param capacity - the capacity of this queue
      * @throws error if the capacity is <= 0
@@ -35,12 +38,16 @@ export default class CircularBuffer<T> {
         this.buffer = []
     }
 
+    get size(): number {
+        return this.buffer.length
+    }
+
     /**
      * Returns true if the buffer is empty.
      *
      * @returns true if the buffer is empty otherwise false
      */
-    public isEmpty() : boolean {
+    public isEmpty(): boolean {
         return this.buffer.length === 0
     }
 
@@ -49,7 +56,7 @@ export default class CircularBuffer<T> {
      *
      * @returns true if the buffer is full otherwise false
      */
-    public isFull() : boolean {
+    public isFull(): boolean {
         return this.buffer.length === this.capacity
     }
 
@@ -58,7 +65,7 @@ export default class CircularBuffer<T> {
      *
      * @param item - item that should be enqueued
      */
-    public enqueue(item: T) : void {
+    public enqueue(item: T): void {
         if (this.isFull()) {
             this.buffer.shift()
         }
@@ -71,11 +78,7 @@ export default class CircularBuffer<T> {
      *
      * @returns the buffer
      */
-    public toArray() : T[] {
+    public toArray(): T[] {
         return [...this.buffer]
-    }
-
-    get size() : number {
-        return this.buffer.length
     }
 }

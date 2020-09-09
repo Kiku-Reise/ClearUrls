@@ -6,6 +6,7 @@ before_script:
   - apt-get install -y zip unzip nodejs jsonlint
 
 stages:
+  - install
   - test
   - build
   - deploy
@@ -35,6 +36,26 @@ hash rules:
       - master
     changes:
       - data/data.min.json
+
+install addon:
+    stage: install
+    script:
+        - npm install
+    cache:
+        paths:
+            - node_modules/
+    artifacts:
+        expire_in: 7 days
+        when: on_success
+        paths:
+            - node_modules/
+
+test addon:
+    stage: test
+    dependencies:
+        - install
+    script:
+        - npm test
 
 bundle addon:
   stage: build

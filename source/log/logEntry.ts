@@ -18,6 +18,9 @@
 
 import Rule from '../rules/rule'
 
+/**
+ * Models a log entry.
+ */
 export default class LogEntry {
     private readonly _before: string
     private readonly _after: string
@@ -33,23 +36,23 @@ export default class LogEntry {
         this._runtime = runtime
     }
 
-    get before() : string {
+    get before(): string {
         return this._before
     }
 
-    get after() : string {
+    get after(): string {
         return this._after
     }
 
-    get rule() : Rule {
+    get rule(): Rule {
         return this._rule
     }
 
-    get timestamp() : number {
+    get timestamp(): number {
         return this._timestamp
     }
 
-    get runtime() : number {
+    get runtime(): number {
         return this._runtime
     }
 }
