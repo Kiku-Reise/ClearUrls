@@ -53,7 +53,7 @@ install addon:
 test addon:
     stage: test
     dependencies:
-        - install
+        - install addon
     script:
         - npm test
 
