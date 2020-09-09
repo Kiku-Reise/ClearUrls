@@ -71,7 +71,7 @@ test:addon:
         - install dependencies
     script:
         - npm test
-    coverage: All files[^|]*\|[^|]*\s+([\d\.]+)
+    coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
     artifacts:
         when: always
         paths:
