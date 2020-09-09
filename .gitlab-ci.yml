@@ -5,6 +5,11 @@ before_script:
   - apt-get update -y
   - apt-get install -y zip unzip nodejs jsonlint
 
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+    paths:
+        - node_modules/
 stages:
   - install
   - test
@@ -37,27 +42,41 @@ hash rules:
     changes:
       - data/data.min.json
 
-install addon:
+install dependencies:
     image: node:latest
     stage: install
     script:
         - npm install
-    cache:
-        paths:
-            - node_modules/
-    artifacts:
-        expire_in: 7 days
-        when: on_success
-        paths:
-            - node_modules/
 
-test addon:
+test:lint:
     image: node:latest
     stage: test
     dependencies:
-        - install addon
+        - install dependencies
+    script:
+        - npm run lint
+
+test:vulnerabilities:
+    image: node:latest
+    stage: test
+    dependencies:
+        - install dependencies
+    script:
+        - npm run vuln-test
+
+test:addon:
+    image: node:latest
+    stage: test
+    dependencies:
+        - install dependencies
     script:
         - npm test
+    coverage: All files[^|]*\|[^|]*\s+([\d\.]+)
+    artifacts:
+        when: always
+        paths:
+            - coverage
+        expire_in: 30 days
 
 bundle addon:
   stage: build
