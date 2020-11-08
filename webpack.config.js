@@ -63,19 +63,12 @@ module.exports = {
           },
         },
         {
-          from: '_locales/**/*'
+          from: '_locales/**/*',
+		  context: 'source'
         },
         {
-          from: 'img/*'
-        },
-        {
-          from: 'fonts/*'
-        },
-        {
-          from: 'css/*'
-        },
-        {
-          from: 'html/*'
+          from: 'img/*',
+		  context: 'source'
         },
         {
           from: 'scripts/*',

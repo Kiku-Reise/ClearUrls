@@ -1,6 +1,6 @@
 {
     "name": "clearurls",
-    "version": "1.19.0",
+    "version": "2.0.0",
     "description": "Remove tracking elements from URLs",
     "main": "background/main.js",
     "dependencies": {
@@ -61,5 +61,5 @@
     "bugs": {
         "url": "https://github.com/KevinRoebert/ClearUrls/issues"
     },
-    "homepage": "https://github.com/KevinRoebert/ClearUrls#readme"
+    "homepage": "https://clearurls.xyz"
 }

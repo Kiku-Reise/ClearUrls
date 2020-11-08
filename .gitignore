@@ -24,3 +24,4 @@ yarn.lock
 distribution
 coverage
 size-plugin.json
+junit.xml

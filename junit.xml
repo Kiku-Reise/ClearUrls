@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="9" failures="0" time="7.098">
-  <testsuite name="RuleTest" errors="0" failures="0" skipped="0" timestamp="2020-09-09T22:58:11" time="4.561" tests="3">
-    <testcase classname="RuleTest should create correct RegExp" name="RuleTest should create correct RegExp" time="0.001">
-    </testcase>
-    <testcase classname="RuleTest should return correct value on toString" name="RuleTest should return correct value on toString" time="0">
-    </testcase>
-    <testcase classname="RuleTest should be set active value correctly" name="RuleTest should be set active value correctly" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="CircularBuffer" errors="0" failures="0" skipped="0" timestamp="2020-09-09T22:58:11" time="4.561" tests="6">
-    <testcase classname="CircularBuffer should creates a buffer with the specified capacity" name="CircularBuffer should creates a buffer with the specified capacity" time="0.001">
+<testsuites name="jest tests" tests="9" failures="0" time="13.744">
+  <testsuite name="CircularBuffer" errors="0" failures="0" skipped="0" timestamp="2020-09-09T23:15:42" time="4.517" tests="6">
+    <testcase classname="CircularBuffer should creates a buffer with the specified capacity" name="CircularBuffer should creates a buffer with the specified capacity" time="0.002">
     </testcase>
     <testcase classname="CircularBuffer should add item to the buffer" name="CircularBuffer should add item to the buffer" time="0">
     </testcase>
@@ -19,7 +11,15 @@
     </testcase>
     <testcase classname="CircularBuffer should return true if buffer is empty" name="CircularBuffer should return true if buffer is empty" time="0">
     </testcase>
-    <testcase classname="CircularBuffer should throw exception on illegal argument" name="CircularBuffer should throw exception on illegal argument" time="0.008">
+    <testcase classname="CircularBuffer should throw exception on illegal argument" name="CircularBuffer should throw exception on illegal argument" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="RuleTest" errors="0" failures="0" skipped="0" timestamp="2020-09-09T23:15:42" time="10.905" tests="3">
+    <testcase classname="RuleTest should create correct RegExp" name="RuleTest should create correct RegExp" time="0.002">
+    </testcase>
+    <testcase classname="RuleTest should return correct value on toString" name="RuleTest should return correct value on toString" time="0">
+    </testcase>
+    <testcase classname="RuleTest should be set active value correctly" name="RuleTest should be set active value correctly" time="0">
     </testcase>
   </testsuite>
 </testsuites>
