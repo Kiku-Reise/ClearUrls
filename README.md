@@ -45,7 +45,7 @@ Reasoning for needed permissions can be found under [here](https://gitlab.com/Ke
 ## CI/CD Artifacts Download (for Firefox- and Chrome-Dev only)
 Here you can download the packed files for the Firefox- and Chrome-Dev:
 
-[<img src="promotion/download-128.png"/>](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls.zip?job=bundle%20addon)
+[<img src="promotion/download-128.png"/>](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs.zip?job=bundle%20addon)
 
 ## Test
 If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://test.clearurls.xyz/](https://test.clearurls.xyz/)
@@ -64,7 +64,7 @@ You can choose between two options to contribute. You can create a merge request
 It is not necessary to translate the description field; in the most cases it is empty.*
 
 #### Merge request
-If you want to create a merge request, you must open the path [`_locales/en/messages.json`](https://github.com/KevinRoebert/ClearUrls/blob/master/_locales/en/messages.json) in the ClearURLs repo 
+If you want to create a merge request, you must open the path [`source/_locales/en/messages.json`](https://github.com/KevinRoebert/ClearUrls/blob/master/source/_locales/en/messages.json) in the ClearURLs repo 
 and translate the english terms into terms of your language. Once you have translated all the terms, you make a pull request of your translation. 
 Please push your translation into the folder `_locales/{country code}/messages.json`.
 
